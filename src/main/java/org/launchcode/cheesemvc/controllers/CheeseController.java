@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by AllynHD (with help from Chris "NotMichael" Bay and LaunchCode
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 @RequestMapping("cheese") // URL Prefix, so every handler requires prefix
 public class CheeseController {
 
-    static ArrayList<String> cheeses = new ArrayList<>();
+    static HashMap<String, String> cheeses = new HashMap<>();
 
 
     // Request path: /cheese
@@ -24,7 +24,7 @@ public class CheeseController {
     public String index(Model model) {
 
         model.addAttribute("cheeses", cheeses);
-        model.addAttribute("title", "My Cheeses");
+        model.addAttribute("title", "PotatoHead");
         return "cheese/index"; // takes in template name, not file name
     }
 
@@ -35,8 +35,8 @@ public class CheeseController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAddCheeseForm(@RequestParam String cheeseName) {
-        cheeses.add(cheeseName);
+    public String processAddCheeseForm(@RequestParam String cheeseName, @RequestParam String cheeseDescription) {
+        cheeses.put(cheeseName, cheeseDescription);
 
         // Redirect to /cheese
         return "redirect:"; //Because it's blank, it redirects to the /cheese route (from Controller, + "")
