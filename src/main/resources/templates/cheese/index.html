@@ -12,8 +12,8 @@
 
         <li th:each="cheese : ${cheeses}">
             <tr>
-                <td th:text="${cheese.key}">Key</td>
-                <td th:text="${cheese.value}">Value</td>
+                <td th:text="${cheese.cheeseName}">Key</td>
+                <td th:text="${cheese.cheeseDescription}">Value</td>
             </tr>
         </li>
 

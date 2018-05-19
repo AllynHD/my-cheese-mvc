@@ -12,8 +12,8 @@
 
     <li th:each="cheese : ${cheeses}">
         <tr>
-            <td th:text="${cheese.key}"></td>
-            <input type="checkbox" th:value="${cheese.key}" name="cheese" />
+            <td th:text="${cheese.cheeseName}"></td>
+            <input type="checkbox" th:value="${cheese.cheeseName}" name="cheeseList" />
         </tr>
     </li>
     <input type="submit" value="Bye Bye Bye" />
